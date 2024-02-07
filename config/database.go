@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
-	"log"
 	"os"
 	"time"
 )
@@ -24,8 +23,6 @@ func ConnectionDB() *sql.DB {
 	db.SetConnMaxLifetime(time.Minute * 3)
 	db.SetMaxOpenConns(10)
 	db.SetMaxIdleConns(10)
-
-	log.Print("Database connected")
 
 	return db
 }

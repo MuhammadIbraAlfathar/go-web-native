@@ -17,6 +17,7 @@ func main() {
 	}
 
 	db := config.ConnectionDB()
+	log.Print("Database connected")
 
 	server := http.NewServeMux()
 
