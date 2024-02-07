@@ -1,4 +1,2 @@
 # Ignore .env file
-.env
-.env.development
-.env.development2
+.envg
