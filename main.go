@@ -14,7 +14,7 @@ func main() {
 		panic(err2)
 	}
 	port := os.Getenv("PORT")
-	fmt.Println("server running in port", port)
+	fmt.Println("server running in port :", port)
 	err := http.ListenAndServe(port, nil)
 	if err != nil {
 		panic(err)
