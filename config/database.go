@@ -9,9 +9,7 @@ import (
 	"time"
 )
 
-var DB *sql.DB
-
-func ConnectionDB() {
+func ConnectionDB() *sql.DB {
 	err := godotenv.Load()
 	if err != nil {
 		panic(err)
@@ -28,5 +26,6 @@ func ConnectionDB() {
 	db.SetMaxIdleConns(10)
 
 	log.Print("Database connected")
-	DB = db
+
+	return db
 }
