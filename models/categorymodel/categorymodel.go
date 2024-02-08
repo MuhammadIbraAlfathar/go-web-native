@@ -32,5 +32,23 @@ func GetAll(db *sql.DB) []entities.Category {
 	}
 
 	return categories
+}
 
+func CreateCategory(db *sql.DB, category entities.Category) {
+	_, err := db.Exec("INSERT INTO categories (name) VALUES (?)", category.Name)
+	if err != nil {
+		panic(err)
+	}
+}
+
+func DetailCategory(id int, db *sql.DB) entities.Category {
+	row := db.QueryRow("SELECT id, name from categories where id = ?", id)
+
+	var category entities.Category
+	err := row.Scan(&category.Id, &category.Name)
+	if err != nil {
+		panic(err)
+	}
+
+	return category
 }

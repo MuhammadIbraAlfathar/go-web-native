@@ -11,4 +11,6 @@ func MapRoutes(server *http.ServeMux, db *sql.DB) {
 	server.HandleFunc("/", homecontroller.HomePage)
 	//category
 	server.HandleFunc("/categories", categorycontroller.Index(db))
+	server.HandleFunc("/categories/add", categorycontroller.Create(db))
+	server.HandleFunc("/categories/edit", categorycontroller.Edit(db))
 }
