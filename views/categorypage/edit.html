@@ -32,7 +32,7 @@
         <div class="col-4">
             <h2>Edit Category</h2>
             <hr>
-            <form action="/categories/edit" method="post">
+            <form action="/categories/edit?id={{.category.Id}}" method="POST">
                 <div class="mb-3">
                     <label class="form-label">Name</label>
                     <input type="text" class="form-control" name="name" autocomplete="off" value="{{.category.Name}}">

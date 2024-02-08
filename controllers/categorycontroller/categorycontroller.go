@@ -93,6 +93,17 @@ func Edit(db *sql.DB) func(w http.ResponseWriter, r *http.Request) {
 			if err != nil {
 				panic(err)
 			}
+		} else if r.Method == "POST" {
+			idString := r.URL.Query().Get("id")
+			id, _ := strconv.Atoi(idString)
+
+			_ = r.ParseForm()
+
+			name := r.Form["name"][0]
+
+			categorymodel.EditCategory(id, name, db)
+
+			http.Redirect(w, r, "/categories", http.StatusMovedPermanently)
 		}
 	}
 }

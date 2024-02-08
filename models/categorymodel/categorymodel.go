@@ -52,3 +52,10 @@ func DetailCategory(id int, db *sql.DB) entities.Category {
 
 	return category
 }
+
+func EditCategory(id int, name string, db *sql.DB) {
+	_, err := db.Exec("UPDATE categories set name = ? WHERE id = ?", name, id)
+	if err != nil {
+		panic(err)
+	}
+}
